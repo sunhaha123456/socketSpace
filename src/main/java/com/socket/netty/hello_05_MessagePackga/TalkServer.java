@@ -15,10 +15,10 @@ public class TalkServer {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childHandler(new ChannelInitializer<SocketChannel>() {
+            b.group(bossGroup, workerGroup).
+                    channel(NioServerSocketChannel.class).
+                    option(ChannelOption.SO_BACKLOG, 1024). // 设置tcp A、B队列总和最大值
+                    childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel channel) throws Exception {
                             ChannelPipeline pipeline = channel.pipeline();

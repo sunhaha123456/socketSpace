@@ -14,8 +14,9 @@ public class TalkClient {
         try {
             Bootstrap b = new Bootstrap();
             b.group(group).channel(NioSocketChannel.class).
-                    option(ChannelOption.TCP_NODELAY, true).
-                    option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000).
+                    option(ChannelOption.TCP_NODELAY, true). // 无延迟发送，关闭Nagle算法，以便高实时性发送数据
+                    option(ChannelOption.SO_KEEPALIVE, true). // 检测服务器是否还活着
+                    option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000). // 客户端调用服务端接口的超时时间
                     handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel channel) throws Exception {
