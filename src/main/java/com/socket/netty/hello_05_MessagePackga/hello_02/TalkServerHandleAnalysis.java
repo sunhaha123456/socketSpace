@@ -2,7 +2,6 @@ package com.socket.netty.hello_05_MessagePackga.hello_02;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.msgpack.MessagePack;
 
 public class TalkServerHandleAnalysis extends ChannelInboundHandlerAdapter {
 
@@ -17,10 +16,8 @@ public class TalkServerHandleAnalysis extends ChannelInboundHandlerAdapter {
         if (msg != null) {
             try {
                 System.out.println("接收到客户端：" + ctx.channel().remoteAddress() + "，发送来的数据：" + msg);
-                MessagePack magPack = new MessagePack();
-                magPack.register(UserInfo.class);
-                byte[] raw = magPack.write(msg);
-                UserInfo userInfo = magPack.read(raw, UserInfo.class);
+                byte[] raw = MagPackUtil.writeUserInfo(msg);
+                UserInfo userInfo = MagPackUtil.readUserInfo(raw);
 
                 System.out.println("解析客户端发送来的数据：userId=" + userInfo.getUserId() + ",userName=" + userInfo.getUserName());
 

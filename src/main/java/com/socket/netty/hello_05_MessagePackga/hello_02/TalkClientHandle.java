@@ -12,10 +12,8 @@ public class TalkClientHandle extends ChannelInboundHandlerAdapter {
         if (msg != null) {
             try {
                 System.out.println("接收到服务端：" + ctx.channel().remoteAddress() + "，发送来的数据：" + msg);
-                MessagePack magPack = new MessagePack();
-                magPack.register(UserInfo.class);
-                byte[] raw = magPack.write(msg);
-                UserInfo userInfo = magPack.read(raw, UserInfo.class);
+                byte[] raw = MagPackUtil.writeUserInfo(msg);
+                UserInfo userInfo = MagPackUtil.readUserInfo(raw);
 
                 System.out.println("解析服务端发送来的数据：userId=" + userInfo.getUserId() + ",userName=" + userInfo.getUserName());
 
