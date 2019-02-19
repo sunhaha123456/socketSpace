@@ -1,4 +1,4 @@
-package com.socket.netty.hello_06_HttpFileServer;
+package com.socket.netty.hello_06_HttpFileServer_backs;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,8 +11,6 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
-
-import java.io.File;
 
 public class HttpFileServer {
 
