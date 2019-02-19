@@ -14,6 +14,5 @@ public class TalkServerInitHandle extends ChannelInitializer<SocketChannel> {
         pipeline.addLast("decoder", new StringDecoder());
         pipeline.addLast("encoder", new StringEncoder());
         pipeline.addLast("handlerIn", new TalkServerHandleClientConnect());
-        pipeline.addLast("handlerOut", new TalkServerHandleServerStart());
     }
 }

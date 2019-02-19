@@ -16,9 +16,9 @@ public class TalkServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
-                    .handler(new TalkServerHandleServerStart())
-                    .childHandler(new TalkServerInitHandle());
+                    .option(ChannelOption.SO_BACKLOG, 1024)     // 设置tcp A、B队列总和最大值
+                    .handler(new TalkServerHandleServerStart()) // 项目启动时执行
+                    .childHandler(new TalkServerInitHandle());  // 客户端连接后执行
 
             Channel ch = b.bind(port).sync().channel();
             ch.closeFuture().sync();
