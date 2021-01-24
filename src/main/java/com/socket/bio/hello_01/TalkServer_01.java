@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 // 同步阻塞 socket demo
-public class TalkServer {
+public class TalkServer_01 {
     public static void main(String[] args) {
         ServerSocket ss = null;
         Socket s = null;
@@ -40,4 +40,3 @@ public class TalkServer {
         }
     }
 }
-
