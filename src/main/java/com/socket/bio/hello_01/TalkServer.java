@@ -12,7 +12,7 @@ public class TalkServer {
         BufferedReader br = null;
         BufferedWriter bw = null;
         try {
-            ss = new ServerSocket(7987);
+            ss = new ServerSocket(8080);
             while(true){
                 System.out.println("正在等待客户端请求！");
                 s = ss.accept();
