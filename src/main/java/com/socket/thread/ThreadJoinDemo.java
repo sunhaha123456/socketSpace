@@ -15,7 +15,7 @@ public class ThreadJoinDemo extends Thread {
         System.out.println("1");
         ThreadJoinDemo thread1 = new ThreadJoinDemo();
         thread1.start();
-        // 要在start之后调用join，调用join后，父线程会阻塞等待子线程执行完毕后，再继续执行
+        //要在start之后调用join，调用join后，父线程会阻塞等待子线程执行完毕后，再继续执行
         thread1.join();
         System.out.println("2");
     }
