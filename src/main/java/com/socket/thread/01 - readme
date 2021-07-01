@@ -1,0 +1,6 @@
+wait 会释放锁，sleep 不会释放锁
+synchronized 和 Lock，是可重入锁，synchronized 不能主动释放锁，Lock 可以主动释放锁
+
+
+
+
