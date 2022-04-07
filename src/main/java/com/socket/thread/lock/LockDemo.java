@@ -1,4 +1,4 @@
-package com.socket.thread;
+package com.socket.thread.lock;
 
 import java.util.ArrayList;
 import java.util.List;
